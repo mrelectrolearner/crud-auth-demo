@@ -19,12 +19,12 @@ public class FirebaseAuthConfig {
     @Bean
     FirebaseAuth firebaseAuth() throws IOException {
 
-        var options = FirebaseOptions.builder()
+        FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount.getInputStream()))
                 .build();
 
 
-        var firebaseApp = FirebaseApp.initializeApp(options);
+        FirebaseApp firebaseApp = FirebaseApp.initializeApp(options);
 
 
         return FirebaseAuth.getInstance(firebaseApp);
